@@ -1,0 +1,51 @@
+export const LoanFormFields = [
+	{
+		id: "buisnessId",
+		label: "Buisness ID",
+		type: "text",
+		className: "mb-3",
+		maxLength: 20,
+	},
+	{
+		id: "applicantId",
+		label: "Applicant ID",
+		type: "text",
+		className: "mb-3",
+		maxLength: 20,
+	},
+	{
+		id: "loanApplicationAmount",
+		label: "Loan Application Amount",
+		type: "text",
+		className: "mb-3",
+		maxLength: 20,
+	},
+	{
+		id: "loanApplicationDate",
+		label: "Loan Application Date",
+		type: "date",
+		className: "mb-3",
+		maxLength: 200,
+	},
+	{
+		id: "loanApplicationDescription",
+		label: "Loan Application Description",
+		type: "text",
+		className: "mb-3",
+		maxLength: 10,
+	},
+	{
+		id: "loanApplicationStatus",
+		label: "Loan Application Status",
+		type: "text",
+		className: "mb-3",
+		maxLength: 10,
+	},
+	{
+		id: "loanApplicationBankersComment",
+		label: "Loan Application Bankers Comment",
+		type: "text",
+		className: "mb-3",
+		maxLength: 10,
+	},
+];
