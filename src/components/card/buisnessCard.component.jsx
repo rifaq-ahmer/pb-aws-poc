@@ -7,6 +7,7 @@ function BuisnessCardComponent({
 	buisnessContactNo,
 	buisnessDescription,
 	applicantDetails,
+	loanDetails,
 }) {
 	return (
 		//<Card style={{ width: "18rem", marginRight: "20px" }} className="mt-4">
@@ -40,6 +41,9 @@ function BuisnessCardComponent({
 				<div className="btn-otuer">
 					<Button variant="primary" onClick={applicantDetails}>
 						Go to Applicant Details
+					</Button>
+					<Button variant="warning" onClick={loanDetails}>
+						Go to Loan Details
 					</Button>
 				</div>
 			</section>

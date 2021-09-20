@@ -58,7 +58,7 @@ function ApplicantCardComponent({
 					<Button variant="primary" onClick={buisnessDetails}>
 						Go to Buisness Details
 					</Button>
-					<Button variant="danger" onClick={loanDetails}>
+					<Button variant="warning" onClick={loanDetails}>
 						Go to Loan Details
 					</Button>
 				</div>

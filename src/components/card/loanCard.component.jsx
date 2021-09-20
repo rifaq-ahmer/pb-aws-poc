@@ -7,6 +7,10 @@ function LoanCardComponent({
 	loanApplicationDescription,
 	loanApplicationStatus,
 	loanApplicationBankerComment,
+	name,
+	address,
+	amount,
+	description,
 	applicantDetails,
 }) {
 	return (
@@ -26,21 +30,24 @@ function LoanCardComponent({
 
 		<section className="user-card-details-outer">
 			<section className="user-card-details">
-					<div className="user-title">User 1</div>
-					<div>
-						<strong>Address:</strong>Pune
-					</div>
-					<div>
-						<strong>Amount:</strong>7,00,000
-					</div>
-					<div>
-						<strong>Discription:</strong>lorem ipsum dolor sit amet, lorem ipsum
-					</div>
-					<div className="btn-otuer">
-						<Button variant="primary" onClick={applicantDetails}>
-							Go to Applicant Details
-						</Button>
-					</div>
+				<div className="user-title">{`${name}`}</div>
+				<div>
+					<strong>Address:</strong>
+					{`${address}`}
+				</div>
+				<div>
+					<strong>Amount:</strong>
+					{`${amount}`}
+				</div>
+				<div>
+					<strong>Discription:</strong>
+					{`${description}`}
+				</div>
+				<div className="btn-otuer">
+					<Button variant="primary" onClick={applicantDetails}>
+						Go to Applicant Details
+					</Button>
+				</div>
 			</section>
 		</section>
 	);
