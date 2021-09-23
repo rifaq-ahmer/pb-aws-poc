@@ -1,4 +1,4 @@
-import { Card, Button } from "react-bootstrap";
+import { Button } from "react-bootstrap";
 function BuisnessCardComponent({
 	buisnessId,
 	applicantId,
@@ -8,6 +8,7 @@ function BuisnessCardComponent({
 	buisnessDescription,
 	applicantDetails,
 	loanDetails,
+	applyForLoan,
 }) {
 	return (
 		//<Card style={{ width: "18rem", marginRight: "20px" }} className="mt-4">
@@ -40,10 +41,13 @@ function BuisnessCardComponent({
 				</div>
 				<div className="btn-otuer">
 					<Button variant="primary" onClick={applicantDetails}>
-						Go to Applicant Details
+						Applicant Details
 					</Button>
 					<Button variant="warning" onClick={loanDetails}>
-						Go to Loan Details
+						Loan Details
+					</Button>
+					<Button variant="success" onClick={applyForLoan}>
+						Apply for Loan
 					</Button>
 				</div>
 			</section>

@@ -1,4 +1,4 @@
-import { Card, Button } from "react-bootstrap";
+import { Button } from "react-bootstrap";
 
 function ApplicantCardComponent({
 	fName,
@@ -14,27 +14,6 @@ function ApplicantCardComponent({
 	loanDetails,
 }) {
 	return (
-		// <Card style={{ width: "25rem", marginRight: "20px" }} className="mt-4">
-		// 	<Card.Body>
-		// 		<Card.Title>{`Name: ${fName} ${mName} ${lName} `}</Card.Title>
-		// 		<Card.Subtitle className="mb-2 text-muted">
-		// 			{`Address: ${address},${pincode}`}
-		// 		</Card.Subtitle>
-		// 		<Card.Text>{`Date of birth: ${dob}`}</Card.Text>
-		// 		<Card.Text>{`Email: ${email}`}</Card.Text>
-		// 		<Card.Text>{`Phone No: ${phoneNo}`}</Card.Text>
-		// 		<Button
-		// 			style={{ marginRight: "10px" }}
-		// 			variant="primary"
-		// 			onClick={buisnessDetails}
-		// 		>
-		// 			Go to Buisness Details
-		// 		</Button>
-		// 		<Button variant="danger" onClick={loanDetails}>
-		// 			Go to Loan Details
-		// 		</Button>
-		// 	</Card.Body>
-		// </Card>
 		<section className="user-card-details-outer">
 			<section className="user-card-details">
 				<div className="user-title">{`${fName} ${mName} ${lName} `}</div>
@@ -56,10 +35,10 @@ function ApplicantCardComponent({
 				</div>
 				<div className="btn-otuer">
 					<Button variant="primary" onClick={buisnessDetails}>
-						Go to Buisness Details
+						Buisness Details
 					</Button>
 					<Button variant="warning" onClick={loanDetails}>
-						Go to Loan Details
+						Loan Details
 					</Button>
 				</div>
 			</section>

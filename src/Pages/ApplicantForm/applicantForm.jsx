@@ -1,34 +1,37 @@
 import React from "react";
 import { withRouter } from "react-router";
 import { useHistory } from "react-router-dom";
-// import axios from "axios";
+import axios from "axios";
 import { Container } from "react-bootstrap";
 import ApplicantFormComponent from "../../components/application-form/application-form.component";
 
 function ApplicantDetailsForm(formData) {
 	const history = useHistory();
-	const handleSubmit = (values) => {
+	const handleSubmit = async (values) => {
 		console.log(values);
 		history.push("/buisnessDetailsForm");
 
-		// await axios.get(
-		// 	"https://dc1nrv6pua.execute-api.ap-south-1.amazonaws.com/dev/applicationsubmission/applicant/1"
-		// {
-		// 	headers: {
-		// 		"content-type": "text/json",
-		// 	},
-		// },
-		// {
-		// 	applicant_fname: values.firstName,
-		// 	applicant_mname: values.middleName,
-		// 	applicant_lname: values.lastName,
-		// 	applicant_address: values.address,
-		// 	applicant_pincode: values.pincode,
-		// 	applicant_dob: values.dob,
-		// 	applicant_email: values.email,
-		// 	applicant_mobno: values.phoneNo,
-		// }
-		// );
+		await axios
+			.post(
+				"https://dc1nrv6pua.execute-api.ap-south-1.amazonaws.com/dev/applicationsubmission/applicant/1",
+
+				{
+					applicant_fname: values.firstName,
+					applicant_mname: values.middleName,
+					applicant_lname: values.lastName,
+					applicant_address: values.address,
+					applicant_pincode: values.pincode,
+					applicant_dob: values.dob,
+					applicant_email: values.email,
+					applicant_mobno: values.phoneNo,
+				}
+			)
+			.then((res) => {
+				console.log(res.data);
+			})
+			.catch((err) => {
+				console.log(err);
+			});
 	};
 	return (
 		<>
