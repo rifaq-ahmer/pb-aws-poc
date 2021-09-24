@@ -10,11 +10,18 @@ import ApplicantDetailsForm from "./Pages/ApplicantForm/applicantForm";
 
 import AppliacantDetails from "./Pages/ViewApplicantsDetails/viewApplicantDetails";
 import ViewBuisnessDetails from "./Pages/ViewBuisnessDetails/viewBuisnessDetails";
-import ViewLoanDetails from "./Pages/ViewLoanDetails/viewLoanDetails"
+import ViewLoanDetails from "./Pages/ViewLoanDetails/viewLoanDetails";
+
+import Amplify from "aws-amplify";
+import awsconfig from "./aws-exports";
+import { AmplifySignOut, withAuthenticator } from "@aws-amplify/ui-react";
+
+Amplify.configure(awsconfig);
 
 function App() {
 	return (
 		<>
+			<AmplifySignOut />
 			<Switch>
 				<Route exact path="/" component={HomePage}></Route>
 				<Route
@@ -36,20 +43,20 @@ function App() {
 					exact
 					path="/viewApplicantsDetails"
 					component={AppliacantDetails}
-					></Route>
-					<Route
+				></Route>
+				<Route
 					exact
 					path="/viewBuisnessDetails"
 					component={ViewBuisnessDetails}
-					></Route>
-					<Route
+				></Route>
+				<Route
 					exact
 					path="/viewLoanDetails"
 					component={ViewLoanDetails}
-					></Route>
+				></Route>
 			</Switch>
-			</>
+		</>
 	);
 }
 
-export default App;
+export default withAuthenticator(App);
