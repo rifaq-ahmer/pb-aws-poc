@@ -13,14 +13,14 @@ function ApplicantDetailsForm(formData) {
 
 		await axios
 			.post(
-				"https://dc1nrv6pua.execute-api.ap-south-1.amazonaws.com/dev/applicationsubmission/applicant/1",
+				"https://dc1nrv6pua.execute-api.ap-south-1.amazonaws.com/dev/applicationsubmission/applicant",
 
 				{
 					applicant_fname: values.firstName,
 					applicant_mname: values.middleName,
 					applicant_lname: values.lastName,
 					applicant_address: values.address,
-					applicant_pincode: values.pincode,
+					applicant_pincode: values.pinCode,
 					applicant_dob: values.dob,
 					applicant_email: values.email,
 					applicant_mobno: values.phoneNo,

@@ -5,11 +5,11 @@ import Input from "../Input/input.component";
 import { LoanFormFields } from "../../utils/loanFormFields";
 import TextArea from "../textarea/textarea.component";
 import CustomButton from "../Button/button.component";
-import { LoanDetailsFormValidationSchema } from "../../validators/LoanDetailsFormValidator";
-import Files from"react-files";
 
+import Files from "react-files";
 
 function BuisnessFormComponent({ onSubmit, formData }) {
+	const currentDate = new Date().toLocaleDateString();
 	const onFilesChange = (files) => {
 		console.log(files);
 	};
@@ -22,7 +22,6 @@ function BuisnessFormComponent({ onSubmit, formData }) {
 			initialValues={formData}
 			enableReinitialize
 			validateOnChange
-			validationSchema={LoanDetailsFormValidationSchema}
 			onSubmit={onSubmit}
 		>
 			{({
@@ -36,6 +35,8 @@ function BuisnessFormComponent({ onSubmit, formData }) {
 				isSubmitting,
 			}) => (
 				<Form onSubmit={handleSubmit} className="custom-forms">
+					<label>Date:- </label>
+					{currentDate}
 					{LoanFormFields.map(({ type, id, label, className, maxLength }) => (
 						<Fragment key={id}>
 							{type === "text" && (
@@ -56,8 +57,9 @@ function BuisnessFormComponent({ onSubmit, formData }) {
 									)}
 								</>
 							)}
-							{type === "date" && (
+							{/* {type === "date" && (
 								<>
+									
 									<Input
 										inputName={id}
 										type={type}
@@ -73,7 +75,7 @@ function BuisnessFormComponent({ onSubmit, formData }) {
 										<p className="text-danger">{errors[id]}</p>
 									)}
 								</>
-							)}
+							)} */}
 							{type === "textarea" && (
 								<>
 									<TextArea
@@ -93,20 +95,20 @@ function BuisnessFormComponent({ onSubmit, formData }) {
 							)}
 						</Fragment>
 					))}
-					
+
 					<div className="files">
 						<Files
-						className="files-dropzone"
-						onChange={onFilesChange}
-						onError={onFilesError}
-						accepts={["image/png", ".pdf", "audio/*"]}
-						multiple
-						maxFiles={3}
-						maxFileSize={10000000}
-						minFileSize={0}
-						clickable
+							className="files-dropzone"
+							onChange={onFilesChange}
+							onError={onFilesError}
+							accepts={["image/png", ".pdf", "audio/*"]}
+							multiple
+							maxFiles={3}
+							maxFileSize={10000000}
+							minFileSize={0}
+							clickable
 						>
-						Drop files here or click to upload
+							Drop files here or click to upload
 						</Files>
 					</div>
 

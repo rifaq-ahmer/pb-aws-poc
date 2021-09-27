@@ -5,7 +5,6 @@ import Input from "../Input/input.component";
 import { BuisnessFormFields } from "../../utils/buisnessFormFields";
 import TextArea from "../textarea/textarea.component";
 import CustomButton from "../Button/button.component";
-import { BuisnessDetailsFormValidationSchema } from "../../validators/BuisnessDetailsFormValidator";
 
 function BuisnessFormComponent({ onSubmit, formData }) {
 	return (
@@ -13,7 +12,6 @@ function BuisnessFormComponent({ onSubmit, formData }) {
 			initialValues={formData}
 			enableReinitialize
 			validateOnChange
-			validationSchema={BuisnessDetailsFormValidationSchema}
 			onSubmit={onSubmit}
 		>
 			{({

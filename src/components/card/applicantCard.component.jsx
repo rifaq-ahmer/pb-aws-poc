@@ -19,7 +19,7 @@ function ApplicantCardComponent({
 				<div className="user-title">{`${fName} ${mName} ${lName} `}</div>
 				<div>
 					<strong>Address:</strong>
-					{`${address},${pincode}`}
+					{`${address}p`}
 				</div>
 				<div>
 					<strong>Date of birth:</strong>

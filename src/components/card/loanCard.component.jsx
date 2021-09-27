@@ -10,6 +10,7 @@ function LoanCardComponent({
 	name,
 	address,
 	status,
+	date,
 	comment,
 	amount,
 	description,
@@ -31,8 +32,8 @@ function LoanCardComponent({
 					{`${status}`}
 				</div>
 				<div>
-					<strong>Bankers Comment:</strong>
-					{`${comment}`}
+					<strong>Loan Application Date :</strong>
+					{`${date}`}
 				</div>
 				<div className="btn-otuer">
 					<Button variant="primary" onClick={applicantDetails}>

@@ -57,13 +57,13 @@ function AppliacantDetails({ history }) {
 	useEffect(() => {
 		axios
 			.get(
-				"https://dc1nrv6pua.execute-api.ap-south-1.amazonaws.com/dev/applicationsubmission/applicant/8"
+				"https://dc1nrv6pua.execute-api.ap-south-1.amazonaws.com/dev/applicationsubmission/applicant/1"
 			)
 			.then((respoense) => {
 				setApplicantDetails(respoense.data);
 				// console.log(respoense.data);
 			});
-	});
+	}, []);
 
 	const showBuisnessDetails = () => {
 		history.push("/viewBuisnessDetails");
@@ -86,7 +86,7 @@ function AppliacantDetails({ history }) {
 					address={applicantDetails.Applicant_address}
 					pincode={applicantDetails.pincode}
 					email={applicantDetails.Applicant_email}
-					phoneNo={applicantDetails.phoneNo}
+					phoneNo={applicantDetails.Applicant_mobno}
 					buisnessDetails={showBuisnessDetails}
 					loanDetails={showLoanDetails}
 					dob={applicantDetails.Applicant_dob}

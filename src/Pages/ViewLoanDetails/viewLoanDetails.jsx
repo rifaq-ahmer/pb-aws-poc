@@ -38,9 +38,9 @@ function ViewLoanDetails({ history }) {
 			)
 			.then((respoense) => {
 				setLoanDetails(respoense.data);
-				// console.log(respoense.data);
+				console.log(respoense.data);
 			});
-	});
+	}, []);
 	const showApplicantDetails = () => {
 		history.push("/viewApplicantsDetails");
 	};

@@ -12,11 +12,11 @@ import AppliacantDetails from "./Pages/ViewApplicantsDetails/viewApplicantDetail
 import ViewBuisnessDetails from "./Pages/ViewBuisnessDetails/viewBuisnessDetails";
 import ViewLoanDetails from "./Pages/ViewLoanDetails/viewLoanDetails";
 
-import Amplify from "aws-amplify";
-import awsconfig from "./aws-exports";
+// import Amplify from "aws-amplify";
+// import awsconfig from "./aws-exports";
 import { AmplifySignOut, withAuthenticator } from "@aws-amplify/ui-react";
 
-Amplify.configure(awsconfig);
+// Amplify.configure(awsconfig);
 
 function App() {
 	return (
