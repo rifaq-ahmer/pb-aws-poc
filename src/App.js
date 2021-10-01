@@ -13,10 +13,10 @@ import ViewBuisnessDetails from "./Pages/ViewBuisnessDetails/viewBuisnessDetails
 import ViewLoanDetails from "./Pages/ViewLoanDetails/viewLoanDetails";
 
 import Amplify from "aws-amplify";
-import { cognito } from "./aws-exports";
+import { config } from "./aws-config";
 import { AmplifySignOut, withAuthenticator } from "@aws-amplify/ui-react";
 
-Amplify.configure(cognito);
+Amplify.configure(config);
 const userName = localStorage.getItem(
 	"CognitoIdentityServiceProvider.v4t4gin13ftnpmb2h96oei79c.LastAuthUser"
 );

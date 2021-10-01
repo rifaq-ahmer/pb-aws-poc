@@ -4,22 +4,22 @@ import { BrowserRouter } from "react-router-dom";
 import App from "./App";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./style.css";
-import { cognito } from "./aws-exports";
+import { config } from "./aws-config";
 import Amplify from "aws-amplify";
 
 Amplify.configure({
 	Auth: {
 		mandatorySignIn: true,
-		region: cognito.cognito.REGION,
-		userPoolId: cognito.cognito.USER_POOL_ID,
-		userPoolWebClientId: cognito.cognito.APP_CLIENT_ID,
+		region: config.cognito.REGION,
+		userPoolId: config.cognito.USER_POOL_ID,
+		userPoolWebClientId: config.cognito.APP_CLIENT_ID,
 	},
 	API: {
 		endpoints: [
 			{
 				name: "Popular Bank",
-				endpoint: cognito.apiGateway.URL,
-				region: cognito.apiGateway.REGION,
+				endpoint: config.apiGateway.URL,
+				region: config.apiGateway.REGION,
 			},
 		],
 	},
