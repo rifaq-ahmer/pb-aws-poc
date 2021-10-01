@@ -44,6 +44,7 @@ function ViewLoanDetails({ history }) {
 	const showApplicantDetails = () => {
 		history.push("/viewApplicantsDetails");
 	};
+
 	return (
 		<div className="heading">
 			<h1>All Loan Details</h1>

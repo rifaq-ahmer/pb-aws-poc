@@ -39,7 +39,7 @@ function ViewBuisnessDetails({ history }) {
 			)
 			.then((respoense) => {
 				setBuisnessDetails(respoense.data);
-				// console.log(respoense.data);
+				console.log(respoense.data);
 			});
 	}, []);
 
