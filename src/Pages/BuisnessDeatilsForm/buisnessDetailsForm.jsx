@@ -12,7 +12,7 @@ function BuisnessDetailsForm(formData) {
 		history.push("/loanDetailsForm");
 		await axios
 			.post(
-				"https://dc1nrv6pua.execute-api.ap-south-1.amazonaws.com/dev/applicationsubmission/business",
+				"https://g9yh14f7ve.execute-api.ap-south-1.amazonaws.com/Authorizeddev/applicationsubmission/business",
 
 				{
 					Applicant_ID: values.applicantId,

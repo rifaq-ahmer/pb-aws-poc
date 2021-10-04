@@ -8,7 +8,7 @@ function LoanDetailsForm(formData) {
 		console.log(values);
 		await axios
 			.post(
-				"https://dc1nrv6pua.execute-api.ap-south-1.amazonaws.com/dev/applicationsubmission/loan",
+				"https://g9yh14f7ve.execute-api.ap-south-1.amazonaws.com/Authorizeddev/applicationsubmission/loan",
 
 				{
 					business_ID: values.buisnessId,

@@ -35,7 +35,7 @@ function ViewBuisnessDetails({ history }) {
 	useEffect(() => {
 		axios
 			.get(
-				"https://dc1nrv6pua.execute-api.ap-south-1.amazonaws.com/dev/applicationsubmission/business/1"
+				"https://g9yh14f7ve.execute-api.ap-south-1.amazonaws.com/Authorizeddev/applicationsubmission/business/1"
 			)
 			.then((respoense) => {
 				setBuisnessDetails(respoense.data);
