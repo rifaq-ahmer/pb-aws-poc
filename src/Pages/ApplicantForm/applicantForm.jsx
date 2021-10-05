@@ -4,16 +4,17 @@ import { useHistory } from "react-router-dom";
 import axios from "axios";
 import { Container } from "react-bootstrap";
 import ApplicantFormComponent from "../../components/application-form/application-form.component";
+import { APPLICANT_POST } from "../../api-constant";
 
 function ApplicantDetailsForm(formData) {
 	const history = useHistory();
 	const handleSubmit = async (values) => {
-		console.log(values);
+		console.log(values, APPLICANT_POST);
 		history.push("/buisnessDetailsForm");
 
 		await axios
 			.post(
-				"https://g9yh14f7ve.execute-api.ap-south-1.amazonaws.com/Authorizeddev/applicationsubmission/applicant",
+				APPLICANT_POST,
 
 				{
 					applicant_fname: values.firstName,

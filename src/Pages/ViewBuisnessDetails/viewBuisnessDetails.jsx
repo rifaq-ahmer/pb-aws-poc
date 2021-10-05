@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Container } from "react-bootstrap";
 import BuisnessCardComponent from "../../components/card/buisnessCard.component";
 import axios from "axios";
+import { BUISNESS_GET } from "../../api-constant";
 
 function ViewBuisnessDetails({ history }) {
 	// const DUMMY_BUISNESS_DETAILS = [
@@ -33,14 +34,10 @@ function ViewBuisnessDetails({ history }) {
 	const [buisnessDetails, setBuisnessDetails] = useState([]);
 
 	useEffect(() => {
-		axios
-			.get(
-				"https://g9yh14f7ve.execute-api.ap-south-1.amazonaws.com/Authorizeddev/applicationsubmission/business/1"
-			)
-			.then((respoense) => {
-				setBuisnessDetails(respoense.data);
-				console.log(respoense.data);
-			});
+		axios.get(BUISNESS_GET).then((respoense) => {
+			setBuisnessDetails(respoense.data);
+			console.log(respoense.data);
+		});
 	}, []);
 
 	const showApplicantDetails = () => {

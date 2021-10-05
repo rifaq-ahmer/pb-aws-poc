@@ -2,19 +2,15 @@ import React, { useState, useEffect } from "react";
 import { Container } from "react-bootstrap";
 import ApplicantCardComponent from "../../components/card/applicantCard.component";
 import axios from "axios";
-
+import { APPLICANT_GET } from "../../api-constant";
 function AppliacantDetails({ history }) {
 	const [applicantDetails, setApplicantDetails] = useState([]);
 
 	useEffect(() => {
-		axios
-			.get(
-				"https://g9yh14f7ve.execute-api.ap-south-1.amazonaws.com/Authorizeddev/applicationsubmission/applicant/1"
-			)
-			.then((respoense) => {
-				setApplicantDetails(respoense.data);
-				console.log(respoense.data);
-			});
+		axios.get(APPLICANT_GET).then((respoense) => {
+			setApplicantDetails(respoense.data);
+			console.log(respoense.data);
+		});
 	}, []);
 
 	const showBuisnessDetails = () => {
