@@ -14,9 +14,9 @@ Amplify.configure({
 		userPoolId: config.cognito.USER_POOL_ID,
 		userPoolWebClientId: config.cognito.APP_CLIENT_ID,
 	},
-	// authenticationFlowType: "ALLOW_USER_SRP_AUTH",
+	authenticationFlowType: "USER_PASSWORD_AUTH",
 	oauth: {
-		domain: "https://applicants.auth.ap-south-1.amazoncognito.com",
+		domain: "applicants.auth.ap-south-1.amazoncognito.com",
 		scope: [
 			"phone",
 			"email",
