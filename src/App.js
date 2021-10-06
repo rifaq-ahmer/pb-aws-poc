@@ -33,7 +33,6 @@ const onSignOut = () => {
 };
 
 function App() {
-	//test
 	return (
 		<>
 			<AmplifySignOut onClick={onSignOut} />
