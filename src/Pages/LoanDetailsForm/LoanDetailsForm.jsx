@@ -2,14 +2,14 @@ import React from "react";
 import { Container } from "react-bootstrap";
 import LoanFormComponent from "../../components/loan-form/loan-form.component";
 import axios from "axios";
-import { LOAN_POST } from "../../api-constant";
+import { config } from "../../aws-config";
 
 function LoanDetailsForm(formData) {
 	const handleSubmit = async (values) => {
 		console.log(values);
 		await axios
 			.post(
-				LOAN_POST,
+				`${config.apiGateway.URL}/applicationsubmission/loan`,
 
 				{
 					business_ID: values.buisnessId,

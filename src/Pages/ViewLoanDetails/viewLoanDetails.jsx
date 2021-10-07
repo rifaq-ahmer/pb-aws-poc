@@ -1,15 +1,17 @@
 import React, { useState, useEffect } from "react";
 import LoanCardComponent from "../../components/card/loanCard.component";
 import axios from "axios";
-import { LOAN_GET } from "../../api-constant";
+import { config } from "../../aws-config";
 function ViewLoanDetails({ history }) {
 	const [loanDetails, setLoanDetails] = useState([]);
 
 	useEffect(() => {
-		axios.get(LOAN_GET).then((respoense) => {
-			setLoanDetails(respoense.data);
-			console.log(respoense.data);
-		});
+		axios
+			.get(`${config.apiGateway.URL}/applicationsubmission/loan/1`)
+			.then((respoense) => {
+				setLoanDetails(respoense.data);
+				console.log(respoense.data);
+			});
 	}, []);
 	const showApplicantDetails = () => {
 		history.push("/viewApplicantsDetails");

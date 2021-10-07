@@ -5,7 +5,6 @@ import Input from "../Input/input.component";
 import { formFields } from "../../utils/formField";
 import TextArea from "../textarea/textarea.component";
 import CustomButton from "../Button/button.component";
-// import { validationSchema } from "../../validators/validator";
 
 function ApplicantFormComponent({ onSubmit, formData }) {
 	return (
@@ -13,7 +12,6 @@ function ApplicantFormComponent({ onSubmit, formData }) {
 			initialValues={formData}
 			enableReinitialize
 			validateOnChange
-			// validationSchema={validationSchema}
 			onSubmit={onSubmit}
 		>
 			{({

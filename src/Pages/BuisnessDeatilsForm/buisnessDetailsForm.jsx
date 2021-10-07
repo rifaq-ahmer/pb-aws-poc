@@ -4,7 +4,7 @@ import { withRouter } from "react-router";
 import { useHistory } from "react-router-dom";
 import axios from "axios";
 import BuisnessFormComponent from "../../components/buisness-form/buisness-form.component";
-import { BUISNESS_POST } from "../../api-constant";
+import { config } from "../../aws-config";
 
 function BuisnessDetailsForm(formData) {
 	const history = useHistory();
@@ -13,7 +13,7 @@ function BuisnessDetailsForm(formData) {
 		history.push("/loanDetailsForm");
 		await axios
 			.post(
-				BUISNESS_POST,
+				`${config.apiGateway.URL}/applicationsubmission/business`,
 
 				{
 					Applicant_ID: values.applicantId,

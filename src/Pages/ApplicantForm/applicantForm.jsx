@@ -5,6 +5,7 @@ import axios from "axios";
 import { Container } from "react-bootstrap";
 import ApplicantFormComponent from "../../components/application-form/application-form.component";
 import { APPLICANT_POST } from "../../api-constant";
+import { config } from "../../aws-config";
 
 function ApplicantDetailsForm(formData) {
 	const history = useHistory();
@@ -14,7 +15,7 @@ function ApplicantDetailsForm(formData) {
 
 		await axios
 			.post(
-				APPLICANT_POST,
+				`${config.apiGateway.URL}/applicationsubmission/applicant`,
 
 				{
 					applicant_fname: values.firstName,

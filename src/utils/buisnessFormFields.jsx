@@ -4,21 +4,21 @@ export const BuisnessFormFields = [
 		label: "Applicant ID",
 		type: "text",
 		className: "mb-3",
-		maxLength: 20,
+		maxLength: 50,
 	},
 	{
 		id: "buisnessName",
 		label: "Buisness Name",
 		type: "text",
 		className: "mb-3",
-		maxLength: 20,
+		maxLength: 50,
 	},
 	{
 		id: "buisnessContactNo",
 		label: "Buisness Contact No",
 		type: "text",
 		className: "mb-3",
-		maxLength: 20,
+		maxLength: 50,
 	},
 	{
 		id: "buisnessAddress",
@@ -32,6 +32,6 @@ export const BuisnessFormFields = [
 		label: "Buisness Description",
 		type: "text",
 		className: "mb-3",
-		maxLength: 10,
+		maxLength: 50,
 	},
 ];

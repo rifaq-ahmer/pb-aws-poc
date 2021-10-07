@@ -2,19 +2,34 @@ import React, { useState, useEffect } from "react";
 import { Container } from "react-bootstrap";
 import ApplicantCardComponent from "../../components/card/applicantCard.component";
 import axios from "axios";
-// import { APPLICANT_GET } from "../../api-constant";
 import { config } from "../../aws-config";
+import { APP_CLIENT_ID } from "../../App";
+
 function AppliacantDetails({ history }) {
 	const [applicantDetails, setApplicantDetails] = useState([]);
+	const userName = localStorage.getItem(
+		`CognitoIdentityServiceProvider.${APP_CLIENT_ID}.LastAuthUser`
+	);
+	const userData = localStorage.getItem(
+		`CognitoIdentityServiceProvider.${APP_CLIENT_ID}.${userName}.userData`
+	);
+	const userDataJSON = JSON.parse(userData);
+	// console.log(userDataJSON);
+	let email;
+	userDataJSON.UserAttributes.forEach((ele) => {
+		email = ele.Name === "email" ? ele.Value : "";
+	});
+
+	console.log(email);
 
 	useEffect(() => {
 		axios
-			.get(`${config.apiGateway.URL}/applicationsubmission/applicant/1`)
+			.get(`${config.apiGateway.URL}/applicationsubmission/applicant/${email}`)
 			.then((respoense) => {
 				setApplicantDetails(respoense.data);
 				console.log(respoense.data);
 			});
-	}, []);
+	}, [email]);
 
 	const showBuisnessDetails = () => {
 		history.push("/viewBuisnessDetails");

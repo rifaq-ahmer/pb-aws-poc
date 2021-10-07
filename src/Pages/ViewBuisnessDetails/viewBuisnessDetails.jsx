@@ -2,42 +2,18 @@ import React, { useState, useEffect } from "react";
 import { Container } from "react-bootstrap";
 import BuisnessCardComponent from "../../components/card/buisnessCard.component";
 import axios from "axios";
-import { BUISNESS_GET } from "../../api-constant";
+import { config } from "../../aws-config";
 
 function ViewBuisnessDetails({ history }) {
-	// const DUMMY_BUISNESS_DETAILS = [
-	// 	{
-	// 		buisnessName: "Zomato Food",
-	// 		buisnessAddress: "Pune",
-	// 		buisnessContactNo: "9876543210",
-	// 		buisnessDescription: "Online Food Delivery Service",
-	// 	},
-	// 	{
-	// 		buisnessName: "Urban Clap",
-	// 		buisnessAddress: "Pune",
-	// 		buisnessContactNo: "9768312243",
-	// 		buisnessDescription: "Home Saloon Service",
-	// 	},
-	// 	{
-	// 		buisnessName: "Uber Eats",
-	// 		buisnessAddress: "Mumbai",
-	// 		buisnessContactNo: "9867412267",
-	// 		buisnessDescription: "Online Food Delivery Service",
-	// 	},
-	// 	{
-	// 		buisnessName: "Ola",
-	// 		buisnessAddress: "Banglore",
-	// 		buisnessContactNo: "9876273710",
-	// 		buisnessDescription: "Online Cab Service",
-	// 	},
-	// ];
 	const [buisnessDetails, setBuisnessDetails] = useState([]);
 
 	useEffect(() => {
-		axios.get(BUISNESS_GET).then((respoense) => {
-			setBuisnessDetails(respoense.data);
-			console.log(respoense.data);
-		});
+		axios
+			.get(`${config.apiGateway.URL}/applicationsubmission/business/1`)
+			.then((respoense) => {
+				setBuisnessDetails(respoense.data);
+				console.log(respoense.data);
+			});
 	}, []);
 
 	const showApplicantDetails = () => {
