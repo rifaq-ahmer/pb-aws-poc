@@ -14,20 +14,20 @@ Amplify.configure({
 		userPoolId: config.cognito.USER_POOL_ID,
 		userPoolWebClientId: config.cognito.APP_CLIENT_ID,
 	},
-	authenticationFlowType: "USER_PASSWORD_AUTH",
-	oauth: {
-		domain: "applicants.auth.ap-south-1.amazoncognito.com",
-		scope: [
-			"phone",
-			"email",
-			"profile",
-			"openid",
-			"aws.cognito.signin.user.admin",
-		],
-		redirectSignIn: "https://master.d2vtrd5zj8n3em.amplifyapp.com",
-		redirectSignOut: "https://example.com/signout",
-		responseType: "token", // or 'token', note that REFRESH token will only be generated when the responseType is code
-	},
+	authenticationFlowType: "USER_SRP_AUTH",
+	// oauth: {
+	// 	domain: "applicants.auth.ap-south-1.amazoncognito.com",
+	// 	scope: [
+	// 		"phone",
+	// 		"email",
+	// 		"profile",
+	// 		"openid",
+	// 		"aws.cognito.signin.user.admin",
+	// 	],
+	// 	redirectSignIn: "https://master.d2vtrd5zj8n3em.amplifyapp.com",
+	// 	redirectSignOut: "https://master.d2vtrd5zj8n3em.amplifyapp.com",
+	// 	responseType: "token", // or 'token', note that REFRESH token will only be generated when the responseType is code
+	// },
 	API: {
 		endpoints: [
 			{

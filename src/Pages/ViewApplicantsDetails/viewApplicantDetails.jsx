@@ -2,15 +2,18 @@ import React, { useState, useEffect } from "react";
 import { Container } from "react-bootstrap";
 import ApplicantCardComponent from "../../components/card/applicantCard.component";
 import axios from "axios";
-import { APPLICANT_GET } from "../../api-constant";
+// import { APPLICANT_GET } from "../../api-constant";
+import { config } from "../../aws-config";
 function AppliacantDetails({ history }) {
 	const [applicantDetails, setApplicantDetails] = useState([]);
 
 	useEffect(() => {
-		axios.get(APPLICANT_GET).then((respoense) => {
-			setApplicantDetails(respoense.data);
-			console.log(respoense.data);
-		});
+		axios
+			.get(`${config.apiGateway.URL}/applicationsubmission/applicant/1`)
+			.then((respoense) => {
+				setApplicantDetails(respoense.data);
+				console.log(respoense.data);
+			});
 	}, []);
 
 	const showBuisnessDetails = () => {

@@ -11,11 +11,11 @@ import AppliacantDetails from "./Pages/ViewApplicantsDetails/viewApplicantDetail
 import ViewBuisnessDetails from "./Pages/ViewBuisnessDetails/viewBuisnessDetails";
 import ViewLoanDetails from "./Pages/ViewLoanDetails/viewLoanDetails";
 
-import Amplify from "aws-amplify";
+// import Amplify from "aws-amplify";
 import { config } from "./aws-config";
 import { AmplifySignOut, withAuthenticator } from "@aws-amplify/ui-react";
 
-Amplify.configure(config);
+// Amplify.configure(config);
 const APP_CLIENT_ID = config.cognito.APP_CLIENT_ID;
 const userName = localStorage.getItem(
 	`CognitoIdentityServiceProvider.${APP_CLIENT_ID}.LastAuthUser`
