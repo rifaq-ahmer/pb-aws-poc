@@ -3,11 +3,11 @@ import LoanCardComponent from "../../components/card/loanCard.component";
 import axios from "axios";
 import { config } from "../../aws-config";
 function ViewLoanDetails({ history }) {
-	const [loanDetails, setLoanDetails] = useState([]);
+	const [loanDetails, setLoanDetails] = useState({});
 
 	useEffect(() => {
 		axios
-			.get(`${config.apiGateway.URL}/applicationsubmission/loan/1`)
+			.get(`${config.apiGateway.URL}/applicationsubmission/loan/1`) //
 			.then((respoense) => {
 				setLoanDetails(respoense.data);
 				console.log(respoense.data);

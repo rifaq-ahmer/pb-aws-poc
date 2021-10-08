@@ -1,11 +1,11 @@
 export const BuisnessFormFields = [
-	{
-		id: "applicantId",
-		label: "Applicant ID",
-		type: "text",
-		className: "mb-3",
-		maxLength: 50,
-	},
+	// {
+	// 	id: "applicantId",
+	// 	label: "Applicant ID",
+	// 	type: "text",
+	// 	className: "mb-3",
+	// 	maxLength: 50,
+	// },
 	{
 		id: "buisnessName",
 		label: "Buisness Name",

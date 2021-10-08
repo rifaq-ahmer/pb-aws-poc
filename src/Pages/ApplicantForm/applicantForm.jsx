@@ -1,17 +1,17 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { withRouter } from "react-router";
 import { useHistory } from "react-router-dom";
 import axios from "axios";
 import { Container } from "react-bootstrap";
 import ApplicantFormComponent from "../../components/application-form/application-form.component";
-import { APPLICANT_POST } from "../../api-constant";
 import { config } from "../../aws-config";
 
 function ApplicantDetailsForm(formData) {
+	const [applicantResponse, setApplicantResponse] = useState({});
+
 	const history = useHistory();
 	const handleSubmit = async (values) => {
-		console.log(values, APPLICANT_POST);
-		history.push("/buisnessDetailsForm");
+		console.log(values);
 
 		await axios
 			.post(
@@ -29,18 +29,33 @@ function ApplicantDetailsForm(formData) {
 				}
 			)
 			.then((res) => {
-				console.log(res.data);
+				if (res.data.ID) {
+					console.log(res.data);
+					setApplicantResponse(res.data);
+				}
 			})
 			.catch((err) => {
 				console.log(err);
 			});
 	};
+
+	useEffect(() => {
+		if (Object.keys(applicantResponse).length > 0) {
+			history.push({
+				pathname: "/buisnessDetailsForm",
+				state: applicantResponse,
+			});
+			return () => setApplicantResponse({});
+		}
+	}, [applicantResponse]);
+
 	return (
 		<>
 			<Container>
 				<div className="heading">
 					<h1>Applicant Details Form</h1>
 				</div>
+
 				<ApplicantFormComponent formData={formData} onSubmit={handleSubmit} />
 			</Container>
 		</>
