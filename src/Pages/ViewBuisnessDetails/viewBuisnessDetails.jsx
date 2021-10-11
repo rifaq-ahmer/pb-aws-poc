@@ -6,10 +6,13 @@ import { config } from "../../aws-config";
 
 function ViewBuisnessDetails({ history }) {
 	const [buisnessDetails, setBuisnessDetails] = useState([]);
+	const applicantId = JSON.parse(localStorage.getItem("applicantResponse"));
 
 	useEffect(() => {
 		axios
-			.get(`${config.apiGateway.URL}/applicationsubmission/business/1`)
+			.get(
+				`${config.apiGateway.URL}/applicationsubmission/business?aid=${applicantId.Applicant_ID}`
+			)
 			.then((respoense) => {
 				setBuisnessDetails(respoense.data);
 				console.log(respoense.data);
@@ -19,29 +22,38 @@ function ViewBuisnessDetails({ history }) {
 	const showApplicantDetails = () => {
 		history.push("/viewApplicantsDetails");
 	};
-	const showLoanDetails = () => {
-		history.push("/viewLoanDetails");
+	const showLoanDetails = (buisnessId) => {
+		history.push({
+			pathname: "/viewLoanDetails",
+			state: { buisnessId },
+		});
 	};
-	const applyForLoan = () => {
-		history.push("/loanDetailsForm");
+	const applyForLoan = (buisnessId) => {
+		history.push({
+			pathname: "/loanDetailsForm",
+			state: { buisnessId, appId: applicantId.Applicant_ID },
+		});
 	};
-
+	console.log(buisnessDetails);
 	return (
 		<>
 			<div className="heading">
 				<h1>All Buisness Details</h1>
 			</div>
-			<Container>
-				<BuisnessCardComponent
-					buisnessName={buisnessDetails.Business_Name}
-					buisnessAddress={buisnessDetails.Business_Address}
-					buisnessContactNo={buisnessDetails.Business_ContactNo}
-					buisnessDescription={buisnessDetails.Business_Description}
-					applicantDetails={showApplicantDetails}
-					loanDetails={showLoanDetails}
-					applyForLoan={applyForLoan}
-				/>
-			</Container>
+			{buisnessDetails.map((buisness) => (
+				<Container>
+					<BuisnessCardComponent
+						buisnessName={buisness.Business_Name}
+						buisnessAddress={buisness.Business_Address}
+						buisnessContactNo={buisness.Business_ContactNo}
+						buisnessDescription={buisness.Business_Description}
+						applicantDetails={showApplicantDetails}
+						loanDetails={showLoanDetails}
+						applyForLoan={applyForLoan}
+						buisnessId={buisness.Business_ID}
+					/>
+				</Container>
+			))}
 		</>
 	);
 }

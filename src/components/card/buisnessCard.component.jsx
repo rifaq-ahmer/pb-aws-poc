@@ -43,10 +43,10 @@ function BuisnessCardComponent({
 					<Button variant="primary" onClick={applicantDetails}>
 						Applicant Details
 					</Button>
-					<Button variant="warning" onClick={loanDetails}>
+					<Button variant="warning" onClick={() => loanDetails(buisnessId)}>
 						Loan Details
 					</Button>
-					<Button variant="success" onClick={applyForLoan}>
+					<Button variant="success" onClick={() => applyForLoan(buisnessId)}>
 						Apply for Loan
 					</Button>
 				</div>

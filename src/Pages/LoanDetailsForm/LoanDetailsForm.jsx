@@ -7,17 +7,22 @@ import { config } from "../../aws-config";
 
 function LoanDetailsForm(formData) {
 	const location = useLocation();
-	const buisnessData = location.state;
-	console.log(buisnessData.applicantId);
+	const { appId, buisnessId } = location.state;
+	// const buisnessData = JSON.parse(localStorage.getItem("buisnessResponse"));
+	// const applicatResponse = JSON.parse(
+	// 	localStorage.getItem("applicantResponse")
+	// );
+
 	const handleSubmit = async (values) => {
 		console.log(values);
+		console.log({ appId, buisnessId });
 		await axios
 			.post(
 				`${config.apiGateway.URL}/applicationsubmission/loan`,
 
 				{
-					business_ID: buisnessData.businessData.ID,
-					applicant_ID: buisnessData.applicantId,
+					business_ID: buisnessId,
+					applicant_ID: appId,
 					loanApplication_Amount: values.loanApplicationAmount,
 					loanApplication_Description: values.loanApplicationDescription,
 					loanApplication_Status: values.loanApplicationStatus,

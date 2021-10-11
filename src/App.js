@@ -48,7 +48,7 @@ Amplify.configure({
 });
 
 function App() {
-	const [applicantDetails, setApplicantDetails] = useState({});
+	const [applicantDetails, setApplicantDetails] = useState([]);
 	const APP_CLIENT_ID = config.cognito.APP_CLIENT_ID;
 	const userName = localStorage.getItem(
 		`CognitoIdentityServiceProvider.${APP_CLIENT_ID}.LastAuthUser`
@@ -60,10 +60,12 @@ function App() {
 	// console.log(accessToken);
 
 	axios.defaults.headers.common["Authorization"] =
-		"eyJraWQiOiJDaXY3UGxuNnprT3VBQitOQ05WM0J1YjJrUjJjUnQ5ekdVVk1BTnVvNHQ0PSIsImFsZyI6IlJTMjU2In0.eyJzdWIiOiI0MTE5NmExMi1jOGMwLTQxMjUtOGRhYS0yZWI2ZTI3OThmYzYiLCJ0b2tlbl91c2UiOiJhY2Nlc3MiLCJzY29wZSI6ImF3cy5jb2duaXRvLnNpZ25pbi51c2VyLmFkbWluIHBob25lIG9wZW5pZCBwcm9maWxlIGVtYWlsIiwiYXV0aF90aW1lIjoxNjMzNjY3MTAxLCJpc3MiOiJodHRwczpcL1wvY29nbml0by1pZHAuYXAtc291dGgtMS5hbWF6b25hd3MuY29tXC9hcC1zb3V0aC0xX1Q2RWFpNEQ3TSIsImV4cCI6MTYzMzc1MzUwMSwiaWF0IjoxNjMzNjY3MTAxLCJ2ZXJzaW9uIjoyLCJqdGkiOiJhODk2MjMwOC1hOWViLTRmODktOWYwNy0xNmVhNGJmYTk0MzQiLCJjbGllbnRfaWQiOiIyYnBoZ2R0OGtuYjh2dWE4cnIwbjdpcmhmbSIsInVzZXJuYW1lIjoicHJhdmluIn0.GxyTBss9psPf3YUVQ71Wo2fCjZeuAvzFtB6pd7sua1r3Qcna8Zm8bO8k-VnG2Hf5_IUIXXQz6T6De1ENO-36Q-fwx8pLpO1TZxMu3fdLbwx0VYMpoLKEKw9ioJCYUrwiS_jrqeHL9T_SZaUrVPZDKydTxi8WpKqOI-mbtPNMbZl6fzeo5P6foCRRIPQKHEEoatUPAypP3yTZHP_z_-i7C8bBgZLhQ6GrCC1davM1purgUVrydYso_us7VaDo_JtTOssT8eOrmyN7sFGm088D_m1IV2x1v3jZgX6QGU8uU8P5Z2uTyQsJYmMeZhc1o6JI-p-RE_6p4789fjvr6Cs3Xg";
+		"eyJraWQiOiJDaXY3UGxuNnprT3VBQitOQ05WM0J1YjJrUjJjUnQ5ekdVVk1BTnVvNHQ0PSIsImFsZyI6IlJTMjU2In0.eyJzdWIiOiJmNGQ0ZWQxMy04MjQwLTQyNWItOTM0My00ZjlmZjRmNzYzMWIiLCJ0b2tlbl91c2UiOiJhY2Nlc3MiLCJzY29wZSI6Im9wZW5pZCBlbWFpbCIsImF1dGhfdGltZSI6MTYzMzkyNjc0NCwiaXNzIjoiaHR0cHM6XC9cL2NvZ25pdG8taWRwLmFwLXNvdXRoLTEuYW1hem9uYXdzLmNvbVwvYXAtc291dGgtMV9UNkVhaTREN00iLCJleHAiOjE2MzQwMTMxNDQsImlhdCI6MTYzMzkyNjc0NCwidmVyc2lvbiI6MiwianRpIjoiNGE3OTNjZDctYTE1OS00ZjM0LTkxMjYtNzlmNTYxN2VhYzQ4IiwiY2xpZW50X2lkIjoiNWhlc2FhcjF1Ym9zcW1kOTZmNmt1Y3FqaXUiLCJ1c2VybmFtZSI6InJpZmFxLmFobWVyQGdtYWlsLmNvbSJ9.CaHHlSdpq4KE3drj1EZRHZOYaDqSUpMp62ZnQ9Vd-AF_gXm8AHG1Yv6zc2psUcmDyl_FHbULSOxTCoYNVXHAPT8oows1UYembgk6kz8-Id-uMAU22nKWaxAhZBMiNn9y5BkHAtCX8A0trLO8gUj0ft_LVrhC4Pf-bmZk0oXWSx-7krj58PkCSRVJcPxeuJ3pMoWdWR2Rks54GaQYH0Fns7HkbvXKEkPpljL2GoQwgxQE7NUdmLWsE-ukamYwk4QWtS77x0hSDCZXxPyPwoj795JObN6UoDIkna2f_hWiNw4WyY1uN7gPApBCBiZ82VK_vR2MgkdRaNpcuZbMUxDakg";
+
 	const onSignOut = () => {
 		localStorage.clear();
 		console.log("Local Storage Clear");
+		<Redirect to="/" />;
 	};
 
 	const userData = localStorage.getItem(
@@ -83,11 +85,17 @@ function App() {
 				.then((respoense) => {
 					if (typeof respoense.data !== "string") {
 						setApplicantDetails(respoense.data);
+						localStorage.setItem(
+							"applicantResponse",
+							JSON.stringify(respoense.data)
+						);
 					} else {
 						console.log(respoense.data);
 					}
 				});
 		}
+		console.log(applicantDetails);
+
 		return () => {
 			setApplicantDetails({});
 		};

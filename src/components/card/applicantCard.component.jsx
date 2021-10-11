@@ -1,4 +1,5 @@
 import { Button } from "react-bootstrap";
+// const appId = JSON.parse(localStorage.getItem("applicantResponse"));
 
 function ApplicantCardComponent({
 	fName,
@@ -11,7 +12,7 @@ function ApplicantCardComponent({
 	email,
 	phoneNo,
 	buisnessDetails,
-	loanDetails,
+	addBuisness,
 }) {
 	return (
 		<section className="user-card-details-outer">
@@ -37,8 +38,8 @@ function ApplicantCardComponent({
 					<Button variant="primary" onClick={buisnessDetails}>
 						Buisness Details
 					</Button>
-					<Button variant="warning" onClick={loanDetails}>
-						Loan Details
+					<Button variant="warning" onClick={addBuisness}>
+						Add Buisness
 					</Button>
 				</div>
 			</section>

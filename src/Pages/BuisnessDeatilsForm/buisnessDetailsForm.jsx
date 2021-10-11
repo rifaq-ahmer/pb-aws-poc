@@ -10,17 +10,18 @@ import { config } from "../../aws-config";
 function BuisnessDetailsForm(formData) {
 	const [buisnessResponse, setBuisnessResponse] = useState({});
 	const history = useHistory();
-	const location = useLocation();
-	const applicantId = location.state;
-	console.log(applicantId.ID);
+	// const location = useLocation();
+	const applicantId = JSON.parse(localStorage.getItem("applicantResponse"));
 	const handleSubmit = async (values) => {
 		console.log(values);
+
+		console.log(applicantId.Applicant_ID);
 		await axios
 			.post(
 				`${config.apiGateway.URL}/applicationsubmission/business`,
 
 				{
-					Applicant_ID: applicantId.ID,
+					Applicant_ID: applicantId.Applicant_ID,
 					Business_Name: values.buisnessName,
 					Business_ContactNo: values.buisnessContactNo,
 					Business_Address: values.buisnessAddress,
@@ -38,13 +39,21 @@ function BuisnessDetailsForm(formData) {
 
 	useEffect(() => {
 		if (Object.keys(buisnessResponse).length > 0) {
+			localStorage.setItem(
+				"buisnessResponse",
+				JSON.stringify(buisnessResponse)
+			);
 			history.push({
 				pathname: "/loanDetailsForm",
-				state: { applicantId: applicantId.ID, businessData: buisnessResponse },
+				state: {
+					applicantId: applicantId.Applicant_ID,
+					businessData: buisnessResponse,
+				},
 			});
 			return () => setBuisnessResponse({});
 		}
 	}, [buisnessResponse]);
+	console.log(buisnessResponse);
 
 	return (
 		<>
