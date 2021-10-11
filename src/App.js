@@ -54,14 +54,12 @@ function App() {
 		`CognitoIdentityServiceProvider.${APP_CLIENT_ID}.LastAuthUser`
 	);
 
-	// const accessToken = localStorage.getItem(
-	// 	`CognitoIdentityServiceProvider.${APP_CLIENT_ID}.${userName}.accessToken`
-	// );
-	// console.log(accessToken);
+	const accessToken = localStorage.getItem(
+		`CognitoIdentityServiceProvider.${APP_CLIENT_ID}.${userName}.accessToken`
+	);
+	console.log(accessToken);
 
-	axios.defaults.headers.common["Authorization"] =
-		"eyJraWQiOiJDaXY3UGxuNnprT3VBQitOQ05WM0J1YjJrUjJjUnQ5ekdVVk1BTnVvNHQ0PSIsImFsZyI6IlJTMjU2In0.eyJzdWIiOiJmNGQ0ZWQxMy04MjQwLTQyNWItOTM0My00ZjlmZjRmNzYzMWIiLCJ0b2tlbl91c2UiOiJhY2Nlc3MiLCJzY29wZSI6Im9wZW5pZCBlbWFpbCIsImF1dGhfdGltZSI6MTYzMzkyNjc0NCwiaXNzIjoiaHR0cHM6XC9cL2NvZ25pdG8taWRwLmFwLXNvdXRoLTEuYW1hem9uYXdzLmNvbVwvYXAtc291dGgtMV9UNkVhaTREN00iLCJleHAiOjE2MzQwMTMxNDQsImlhdCI6MTYzMzkyNjc0NCwidmVyc2lvbiI6MiwianRpIjoiNGE3OTNjZDctYTE1OS00ZjM0LTkxMjYtNzlmNTYxN2VhYzQ4IiwiY2xpZW50X2lkIjoiNWhlc2FhcjF1Ym9zcW1kOTZmNmt1Y3FqaXUiLCJ1c2VybmFtZSI6InJpZmFxLmFobWVyQGdtYWlsLmNvbSJ9.CaHHlSdpq4KE3drj1EZRHZOYaDqSUpMp62ZnQ9Vd-AF_gXm8AHG1Yv6zc2psUcmDyl_FHbULSOxTCoYNVXHAPT8oows1UYembgk6kz8-Id-uMAU22nKWaxAhZBMiNn9y5BkHAtCX8A0trLO8gUj0ft_LVrhC4Pf-bmZk0oXWSx-7krj58PkCSRVJcPxeuJ3pMoWdWR2Rks54GaQYH0Fns7HkbvXKEkPpljL2GoQwgxQE7NUdmLWsE-ukamYwk4QWtS77x0hSDCZXxPyPwoj795JObN6UoDIkna2f_hWiNw4WyY1uN7gPApBCBiZ82VK_vR2MgkdRaNpcuZbMUxDakg";
-
+	axios.defaults.headers.common["Authorization"] = accessToken;
 	const onSignOut = () => {
 		localStorage.clear();
 		console.log("Local Storage Clear");
@@ -94,7 +92,6 @@ function App() {
 					}
 				});
 		}
-		console.log(applicantDetails);
 
 		return () => {
 			setApplicantDetails({});

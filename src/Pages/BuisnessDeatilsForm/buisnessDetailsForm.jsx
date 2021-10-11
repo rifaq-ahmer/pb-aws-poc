@@ -15,7 +15,7 @@ function BuisnessDetailsForm(formData) {
 	const handleSubmit = async (values) => {
 		console.log(values);
 
-		console.log(applicantId.Applicant_ID);
+		console.log(applicantId);
 		await axios
 			.post(
 				`${config.apiGateway.URL}/applicationsubmission/business`,

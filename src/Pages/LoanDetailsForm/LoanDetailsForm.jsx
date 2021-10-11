@@ -28,7 +28,7 @@ function LoanDetailsForm(formData) {
 
 	const handleSubmit = async (values) => {
 		console.log(values);
-		console.log(appId, buisnessId);
+
 		await axios
 			.post(
 				`${config.apiGateway.URL}/applicationsubmission/loan`,
