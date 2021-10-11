@@ -7,22 +7,35 @@ import { config } from "../../aws-config";
 
 function LoanDetailsForm(formData) {
 	const location = useLocation();
-	const { appId, buisnessId } = location.state;
+	// const { appId, buisnessId } = location.state;
+	const appId = location.state.appId;
+	const buisnessId = location.state.buisnessId;
 	// const buisnessData = JSON.parse(localStorage.getItem("buisnessResponse"));
 	// const applicatResponse = JSON.parse(
 	// 	localStorage.getItem("applicantResponse")
 	// );
 
+	const initialBuisnessId = JSON.parse(
+		localStorage.getItem("buisnessResponse")
+	);
+	console.log(initialBuisnessId.ID);
+
+	const initialApplicantId = JSON.parse(
+		localStorage.getItem("applicantResponse")
+	);
+	console.log(initialApplicantId.Applicant_ID);
+	// console.log(initialApplicantId.Applicant_ID, initialBuisnessId.ID);
+
 	const handleSubmit = async (values) => {
 		console.log(values);
-		console.log({ appId, buisnessId });
+		console.log(appId, buisnessId);
 		await axios
 			.post(
 				`${config.apiGateway.URL}/applicationsubmission/loan`,
 
 				{
-					business_ID: buisnessId,
-					applicant_ID: appId,
+					business_ID: initialBuisnessId.ID || buisnessId,
+					applicant_ID: initialApplicantId.Applicant_ID || appId,
 					loanApplication_Amount: values.loanApplicationAmount,
 					loanApplication_Description: values.loanApplicationDescription,
 					loanApplication_Status: values.loanApplicationStatus,
