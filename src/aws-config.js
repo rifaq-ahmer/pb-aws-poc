@@ -7,6 +7,6 @@ export const config = {
 		REGION: "ap-south-1",
 		USER_POOL_ID: "ap-south-1_T6Eai4D7M",
 		APP_CLIENT_ID: "5hesaar1ubosqmd96f6kucqjiu",
-		CALLBACK_URL: "https://master.d2vtrd5zj8n3em.amplifyapp.com",
+		CALLBACK_URL: "https://master.d3n4gc65xuvvqw.amplifyapp.com/",
 	},
 };
