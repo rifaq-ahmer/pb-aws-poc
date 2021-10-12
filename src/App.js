@@ -37,7 +37,7 @@ Amplify.configure({
 
 		redirectSignOut: "https://master.d3n4gc65xuvvqw.amplifyapp.com/",
 
-		responseType: "token", // or 'token', note that REFRESH token will only be generated when the responseType is code
+		responseType: "token",
 	},
 	API: {
 		endpoints: [
