@@ -102,7 +102,7 @@ function App() {
 	const userData = localStorage.getItem(
 		`CognitoIdentityServiceProvider.${APP_CLIENT_ID}.${userName}.userData`
 	);
-	const userDataJSON = JSON.parse(userData || {});
+	const userDataJSON = JSON.parse(JSON.stringify(userData || {}));
 	let email;
 	userDataJSON.UserAttributes.forEach((ele) => {
 		email = ele.Name === "email" ? ele.Value : "";
