@@ -24,17 +24,17 @@ function AppliacantDetails({ data }) {
 			</div>
 			<Container>
 				<ApplicantCardComponent
-					id={data.Applicant_ID}
-					fName={data.Applicant_fname}
-					mName={data.Applicant_mname}
-					lName={data.Applicant_lname}
-					address={data.Applicant_address}
-					pincode={data.pincode}
-					email={data.Applicant_email}
-					phoneNo={data.Applicant_mobno}
+					id={data.Applicant_ID || ""}
+					fName={data.Applicant_fname || ""}
+					mName={data.Applicant_mname || ""}
+					lName={data.Applicant_lname || ""}
+					address={data.Applicant_address || ""}
+					pincode={data.pincode || ""}
+					email={data.Applicant_email || ""}
+					phoneNo={data.Applicant_mobno || ""}
 					buisnessDetails={showBuisnessDetails}
 					addBuisness={addBuisness}
-					dob={data.Applicant_dob}
+					dob={data.Applicant_dob || ""}
 				/>
 			</Container>
 		</>
