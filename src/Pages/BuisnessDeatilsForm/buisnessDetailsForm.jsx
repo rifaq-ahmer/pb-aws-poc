@@ -2,24 +2,26 @@ import React, { useState, useEffect } from "react";
 import { Container } from "react-bootstrap";
 import { withRouter } from "react-router";
 import { useHistory } from "react-router-dom";
-import { useLocation } from "react-router-dom";
-import axios from "axios";
 import BuisnessFormComponent from "../../components/buisness-form/buisness-form.component";
-import { config } from "../../aws-config";
+import { API, Auth } from "aws-amplify";
 
 function BuisnessDetailsForm(formData) {
 	const [buisnessResponse, setBuisnessResponse] = useState({});
 	const history = useHistory();
-	// const location = useLocation();
 	const applicantId = JSON.parse(localStorage.getItem("applicantResponse"));
 	const handleSubmit = async (values) => {
 		console.log(values);
-
-		console.log(applicantId);
-		await axios
-			.post(
-				`${config.apiGateway.URL}/applicationsubmission/business`,
-
+		await Auth.currentAuthenticatedUser().then((response) => {
+			const token = localStorage.getItem("accessToken");
+			const request = {
+				headers: {
+					Authorization: token,
+				},
+			};
+			API.post(
+				"ApplicantSubmission",
+				"/applicationsubmission/business",
+				request,
 				{
 					Applicant_ID: applicantId.Applicant_ID,
 					Business_Name: values.buisnessName,
@@ -28,13 +30,14 @@ function BuisnessDetailsForm(formData) {
 					Business_Description: values.buisnessDescription,
 				}
 			)
-			.then((res) => {
-				console.log(res.data);
-				setBuisnessResponse(res.data);
-			})
-			.catch((err) => {
-				console.log(err);
-			});
+				.then((res) => {
+					console.log(res.data);
+					setBuisnessResponse(res.data);
+				})
+				.catch((err) => {
+					console.log(err);
+				});
+		});
 	};
 
 	useEffect(() => {
@@ -74,3 +77,23 @@ export default withRouter(BuisnessDetailsForm);
 // business_ContactNo: values.buisnessContactNo,
 // business_Address: values.buisnessAddress,
 // business_Description: values.buisnessDescription,
+
+// axios
+// 	.post(
+// 		`${config.apiGateway.URL}/applicationsubmission/business`,
+
+// {
+// 	Applicant_ID: applicantId.Applicant_ID,
+// 	Business_Name: values.buisnessName,
+// 	Business_ContactNo: values.buisnessContactNo,
+// 	Business_Address: values.buisnessAddress,
+// 	Business_Description: values.buisnessDescription,
+// }
+// 	)
+// .then((res) => {
+// 	console.log(res.data);
+// 	setBuisnessResponse(res.data);
+// })
+// .catch((err) => {
+// 	console.log(err);
+// });

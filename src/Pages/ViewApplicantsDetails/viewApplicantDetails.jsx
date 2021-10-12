@@ -2,10 +2,6 @@ import React from "react";
 import { useHistory } from "react-router-dom";
 import { Container } from "react-bootstrap";
 import ApplicantCardComponent from "../../components/card/applicantCard.component";
-// import axios from "axios";
-import { config } from "../../aws-config";
-
-export const APP_CLIENT_ID = config.cognito.APP_CLIENT_ID;
 
 function AppliacantDetails({ data }) {
 	let history = useHistory();

@@ -1,22 +1,29 @@
 import React, { useState, useEffect } from "react";
 import { Container } from "react-bootstrap";
 import BuisnessCardComponent from "../../components/card/buisnessCard.component";
-import axios from "axios";
-import { config } from "../../aws-config";
+import { Auth, API } from "aws-amplify";
 
 function ViewBuisnessDetails({ history }) {
 	const [buisnessDetails, setBuisnessDetails] = useState([]);
 	const applicantId = JSON.parse(localStorage.getItem("applicantResponse"));
 
 	useEffect(() => {
-		axios
-			.get(
-				`${config.apiGateway.URL}/applicationsubmission/business?aid=${applicantId.Applicant_ID}`
-			)
-			.then((respoense) => {
+		Auth.currentAuthenticatedUser().then(() => {
+			const token = localStorage.getItem("accessToken");
+			const request = {
+				headers: {
+					Authorization: token,
+				},
+			};
+			API.get(
+				"ApplicantSubmission",
+				`/applicationsubmission/business?aid=${applicantId.Applicant_ID}`,
+				request
+			).then((respoense) => {
 				setBuisnessDetails(respoense.data);
 				console.log(respoense.data);
 			});
+		});
 	}, []);
 
 	const showApplicantDetails = () => {
@@ -59,3 +66,12 @@ function ViewBuisnessDetails({ history }) {
 }
 
 export default ViewBuisnessDetails;
+
+// axios
+// 	.get(
+// 		`${config.apiGateway.URL}/applicationsubmission/business?aid=${applicantId.Applicant_ID}`
+// 	)
+// 	.then((respoense) => {
+// 		setBuisnessDetails(respoense.data);
+// 		console.log(respoense.data);
+// 	});

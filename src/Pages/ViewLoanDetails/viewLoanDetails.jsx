@@ -3,6 +3,7 @@ import LoanCardComponent from "../../components/card/loanCard.component";
 import axios from "axios";
 import { config } from "../../aws-config";
 import { useLocation } from "react-router-dom";
+import { Auth, API } from "aws-amplify";
 function ViewLoanDetails({ history }) {
 	const [loanDetails, setLoanDetails] = useState([]);
 	const buisnessResponse = JSON.parse(localStorage.getItem("buisnessResponse"));
@@ -11,6 +12,23 @@ function ViewLoanDetails({ history }) {
 	const { buisnessId } = location.state;
 
 	useEffect(() => {
+		Auth.currentAuthenticatedUser().then(() => {
+			const token = localStorage.getItem("accessToken");
+			const request = {
+				headers: {
+					Authorization: token,
+				},
+			};
+			API.get(
+				"ApplicantSubmission",
+				`/applicationsubmission/loan?bid=${buisnessId || buisnessResponse.ID}`,
+				request
+			).then((respoense) => {
+				if (typeof respoense.data !== "string") {
+					setLoanDetails(respoense.data);
+				}
+			});
+		});
 		axios
 			.get(
 				`${config.apiGateway.URL}/applicationsubmission/loan?bid=${
