@@ -11,6 +11,7 @@ import AppliacantDetails from "./Pages/ViewApplicantsDetails/viewApplicantDetail
 import ViewBuisnessDetails from "./Pages/ViewBuisnessDetails/viewBuisnessDetails";
 import ViewLoanDetails from "./Pages/ViewLoanDetails/viewLoanDetails";
 import Amplify, { Auth } from "aws-amplify";
+// import { config } from "./aws-config";
 import { Amplifyconfig } from "./aws-config";
 import { AmplifySignOut, withAuthenticator } from "@aws-amplify/ui-react";
 
@@ -27,8 +28,11 @@ function App() {
 	useEffect(() => {
 		Auth.currentAuthenticatedUser().then((response) => {
 			const token = response.signInUserSession.accessToken.jwtToken;
+			const email = response.attributes.email;
+			console.log(token);
+
 			localStorage.setItem("accessToken", token);
-			const email = response.signInUserSession.email;
+
 			const request = {
 				headers: {
 					Authorization: token,
@@ -175,5 +179,21 @@ export default withAuthenticator(App);
 // const userDataJSON = JSON.parse(userData || {});
 // let email;
 // userDataJSON.UserAttributes.forEach((ele) => {
+// 	email = ele.Name === "email" ? ele.Value : "";
+// });
+
+// const APP_CLIENT_ID = config.cognito.APP_CLIENT_ID;
+// const userName = JSON.parse(
+// 	localStorage.getItem(
+// 		`CognitoIdentityServiceProvider.${APP_CLIENT_ID}.LastAuthUser`
+// 	)
+// );
+// const userData = JSON.parse(
+// 	localStorage.getItem(
+// 		`CognitoIdentityServiceProvider.${APP_CLIENT_ID}.${userName}.userData`
+// 	)
+// );
+// let email;
+// userData.UserAttributes.forEach((ele) => {
 // 	email = ele.Name === "email" ? ele.Value : "";
 // });

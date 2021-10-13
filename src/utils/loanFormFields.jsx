@@ -34,18 +34,18 @@ export const LoanFormFields = [
 		className: "mb-3",
 		maxLength: 50,
 	},
-	{
-		id: "loanApplicationStatus",
-		label: "Loan Application Status",
-		type: "text",
-		className: "mb-3",
-		maxLength: 50,
-	},
-	{
-		id: "loanApplicationBankersComment",
-		label: "Loan Application Bankers Comment",
-		type: "text",
-		className: "mb-3",
-		maxLength: 50,
-	},
+	// {
+	// 	id: "loanApplicationStatus",
+	// 	label: "Loan Application Status",
+	// 	type: "text",
+	// 	className: "mb-3",
+	// 	maxLength: 50,
+	// },
+	// {
+	// 	id: "loanApplicationBankersComment",
+	// 	label: "Loan Application Bankers Comment",
+	// 	type: "text",
+	// 	className: "mb-3",
+	// 	maxLength: 50,
+	// },
 ];
