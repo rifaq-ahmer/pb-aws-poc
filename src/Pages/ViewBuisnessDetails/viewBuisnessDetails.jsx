@@ -10,7 +10,7 @@ function ViewBuisnessDetails({ history }) {
 	useEffect(() => {
 		Auth.currentAuthenticatedUser().then(() => {
 			const token = localStorage.getItem("accessToken");
-			console.log(token);
+
 			const request = {
 				headers: {
 					Authorization: token,
@@ -65,12 +65,3 @@ function ViewBuisnessDetails({ history }) {
 }
 
 export default ViewBuisnessDetails;
-
-// axios
-// 	.get(
-// 		`${config.apiGateway.URL}/applicationsubmission/business?aid=${applicantId.Applicant_ID}`
-// 	)
-// 	.then((respoense) => {
-// 		setBuisnessDetails(respoense.data);
-// 		console.log(respoense.data);
-// 	});

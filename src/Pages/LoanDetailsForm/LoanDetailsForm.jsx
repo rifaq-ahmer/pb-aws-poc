@@ -59,32 +59,3 @@ function LoanDetailsForm(formData) {
 }
 
 export default LoanDetailsForm;
-
-// {
-// business_ID: values.buisnessId,
-// applicant_ID: values.applicantId,
-// loanApplication_Amount: values.loanApplicationAmount,
-// loanApplication_Date: values.loanApplicationDate,
-// loanApplication_Description: values.loanApplicationDescription,
-// loanApplication_Status: values.loanApplicationStatus,
-// loanApplication_BankerComment: values.loanApplicationBankersComment,
-// }
-// await axios
-// 	.post(
-// 		`${config.apiGateway.URL}/applicationsubmission/loan`,
-
-// 		{
-// business_ID: initialBuisnessId.ID || buisnessId,
-// applicant_ID: initialApplicantId.Applicant_ID || appId,
-// loanApplication_Amount: values.loanApplicationAmount,
-// loanApplication_Description: values.loanApplicationDescription,
-// loanApplication_Status: values.loanApplicationStatus,
-// loanApplication_BankerComment: values.loanApplicationBankersComment,
-// 		}
-// 	)
-// .then((res) => {
-// 	console.log(res.data);
-// })
-// .catch((err) => {
-// 	console.log(err);
-// })

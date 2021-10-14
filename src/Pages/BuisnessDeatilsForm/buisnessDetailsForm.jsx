@@ -33,6 +33,7 @@ function BuisnessDetailsForm(formData) {
 				request
 			)
 				.then((res) => {
+					console.log(res);
 					setBuisnessResponse(res);
 				})
 				.catch((err) => {
@@ -71,29 +72,3 @@ function BuisnessDetailsForm(formData) {
 }
 
 export default withRouter(BuisnessDetailsForm);
-
-// applicant_ID: values.applicantId,
-// business_Name: values.buisnessName,
-// business_ContactNo: values.buisnessContactNo,
-// business_Address: values.buisnessAddress,
-// business_Description: values.buisnessDescription,
-
-// axios
-// 	.post(
-// 		`${config.apiGateway.URL}/applicationsubmission/business`,
-
-// {
-// 	Applicant_ID: applicantId.Applicant_ID,
-// 	Business_Name: values.buisnessName,
-// 	Business_ContactNo: values.buisnessContactNo,
-// 	Business_Address: values.buisnessAddress,
-// 	Business_Description: values.buisnessDescription,
-// }
-// 	)
-// .then((res) => {
-// 	console.log(res);
-// 	setBuisnessResponse(res.data);
-// })
-// .catch((err) => {
-// 	console.log(err);
-// });

@@ -73,28 +73,3 @@ function ApplicantDetailsForm(formData) {
 }
 
 export default withRouter(ApplicantDetailsForm);
-
-// await axios
-// 	.post(
-// 		`${config.apiGateway.URL}/applicationsubmission/applicant`,
-
-// 		{
-// 			applicant_fname: values.firstName,
-// 			applicant_mname: values.middleName,
-// 			applicant_lname: values.lastName,
-// 			applicant_address: values.address,
-// 			applicant_pincode: values.pinCode,
-// 			applicant_dob: values.dob,
-// 			applicant_email: values.email,
-// 			applicant_mobno: values.phoneNo,
-// 		}
-// 	)
-// 	.then((res) => {
-// 		if (res.data.ID) {
-// 			console.log(res.data);
-// 			setApplicantResponse(res.data);
-// 		}
-// 	})
-// 	.catch((err) => {
-// 		console.log(err);
-// 	});

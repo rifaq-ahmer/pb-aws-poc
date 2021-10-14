@@ -14,7 +14,6 @@ function ViewLoanDetails({ history }) {
 	useEffect(() => {
 		Auth.currentAuthenticatedUser().then(() => {
 			const token = localStorage.getItem("accessToken");
-			console.log(token);
 			const request = {
 				headers: {
 					Authorization: token,
