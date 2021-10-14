@@ -19,12 +19,7 @@ function ApplicantDetailsForm(formData) {
 				headers: {
 					Authorization: token,
 				},
-			};
-			API.post(
-				"ApplicantSubmission",
-				"/applicationsubmission/applicant",
-				request,
-				{
+				body: {
 					applicant_fname: values.firstName,
 					applicant_mname: values.middleName,
 					applicant_lname: values.lastName,
@@ -33,7 +28,12 @@ function ApplicantDetailsForm(formData) {
 					applicant_dob: values.dob,
 					applicant_email: values.email,
 					applicant_mobno: values.phoneNo,
-				}
+				},
+			};
+			API.post(
+				"ApplicantSubmission",
+				"/applicationsubmission/applicant",
+				request
 			)
 				.then((res) => {
 					if (res.ID) {

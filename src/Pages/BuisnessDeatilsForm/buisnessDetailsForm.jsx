@@ -19,18 +19,18 @@ function BuisnessDetailsForm(formData) {
 				headers: {
 					Authorization: token,
 				},
-			};
-			API.post(
-				"ApplicantSubmission",
-				"/applicationsubmission/business",
-				request,
-				{
+				body: {
 					Applicant_ID: applicantId.Applicant_ID,
 					Business_Name: values.buisnessName,
 					Business_ContactNo: values.buisnessContactNo,
 					Business_Address: values.buisnessAddress,
 					Business_Description: values.buisnessDescription,
-				}
+				},
+			};
+			API.post(
+				"ApplicantSubmission",
+				"/applicationsubmission/business",
+				request
 			)
 				.then((res) => {
 					setBuisnessResponse(res);
