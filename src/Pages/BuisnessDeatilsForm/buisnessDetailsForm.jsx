@@ -9,7 +9,7 @@ function BuisnessDetailsForm(formData) {
 	const [buisnessResponse, setBuisnessResponse] = useState({});
 	const history = useHistory();
 	const applicantId = JSON.parse(localStorage.getItem("applicantResponse"));
-
+	const appId = localStorage.getItem("applicantId");
 	const handleSubmit = async (values) => {
 		console.log(values);
 		await Auth.currentAuthenticatedUser().then((response) => {
@@ -20,7 +20,7 @@ function BuisnessDetailsForm(formData) {
 					Authorization: token,
 				},
 				body: {
-					Applicant_ID: applicantId.Applicant_ID,
+					Applicant_ID: applicantId.Applicant_ID || appId,
 					Business_Name: values.buisnessName,
 					Business_ContactNo: values.buisnessContactNo,
 					Business_Address: values.buisnessAddress,

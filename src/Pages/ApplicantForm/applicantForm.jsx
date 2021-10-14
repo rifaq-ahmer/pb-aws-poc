@@ -7,6 +7,8 @@ import ApplicantFormComponent from "../../components/application-form/applicatio
 
 function ApplicantDetailsForm(formData) {
 	const [applicantResponse, setApplicantResponse] = useState({});
+	const applicantId = applicantResponse.ID;
+	localStorage.setItem("applicantId", applicantId);
 
 	const history = useHistory();
 	const handleSubmit = async (values) => {
