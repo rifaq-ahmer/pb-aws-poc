@@ -11,7 +11,6 @@ import AppliacantDetails from "./Pages/ViewApplicantsDetails/viewApplicantDetail
 import ViewBuisnessDetails from "./Pages/ViewBuisnessDetails/viewBuisnessDetails";
 import ViewLoanDetails from "./Pages/ViewLoanDetails/viewLoanDetails";
 import Amplify, { Auth } from "aws-amplify";
-// import { config } from "./aws-config";
 import { Amplifyconfig } from "./aws-config";
 import { AmplifySignOut, withAuthenticator } from "@aws-amplify/ui-react";
 
@@ -28,10 +27,9 @@ function App() {
 	useEffect(() => {
 		Auth.currentAuthenticatedUser().then((res) => {
 			const token = res.signInUserSession.accessToken.jwtToken;
-			const email = res.attributes.email;
-			console.log(token);
-
 			localStorage.setItem("accessToken", token);
+			console.log(token);
+			const email = res.attributes.email;
 
 			const request = {
 				headers: {

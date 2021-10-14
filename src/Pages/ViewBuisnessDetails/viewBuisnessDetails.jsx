@@ -10,6 +10,7 @@ function ViewBuisnessDetails({ history }) {
 	useEffect(() => {
 		Auth.currentAuthenticatedUser().then(() => {
 			const token = localStorage.getItem("accessToken");
+			console.log(token);
 			const request = {
 				headers: {
 					Authorization: token,
@@ -40,7 +41,6 @@ function ViewBuisnessDetails({ history }) {
 			state: { buisnessId, appId: applicantId.Applicant_ID },
 		});
 	};
-	console.log(buisnessDetails);
 	return (
 		<>
 			<div className="heading">

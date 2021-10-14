@@ -36,10 +36,10 @@ function ApplicantCardComponent({
 				</div>
 				<div className="btn-otuer">
 					<Button variant="primary" onClick={buisnessDetails}>
-						Buisness Details
+						Business Details
 					</Button>
 					<Button variant="warning" onClick={addBuisness}>
-						Add Buisness
+						Add Business
 					</Button>
 				</div>
 			</section>

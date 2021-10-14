@@ -35,7 +35,7 @@ function ApplicantFormComponent({ onSubmit, formData }) {
 										className={className}
 										id={id}
 										label={label}
-										value={values[id] || " "}
+										value={values[id] || ""}
 										onChange={handleChange}
 										onBlur={handleBlur}
 										maxLength={maxLength}
