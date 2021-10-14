@@ -7,13 +7,14 @@ import { Auth, API } from "aws-amplify";
 function ViewLoanDetails({ history }) {
 	const [loanDetails, setLoanDetails] = useState([]);
 	const buisnessResponse = JSON.parse(localStorage.getItem("buisnessResponse"));
-	console.log(buisnessResponse);
+
 	const location = useLocation();
 	const { buisnessId } = location.state;
 
 	useEffect(() => {
 		Auth.currentAuthenticatedUser().then(() => {
 			const token = localStorage.getItem("accessToken");
+			console.log(token);
 			const request = {
 				headers: {
 					Authorization: token,
@@ -23,9 +24,9 @@ function ViewLoanDetails({ history }) {
 				"ApplicantSubmission",
 				`/applicationsubmission/loan?bid=${buisnessId || buisnessResponse.ID}`,
 				request
-			).then((respoense) => {
-				if (typeof respoense.data !== "string") {
-					setLoanDetails(respoense.data);
+			).then((res) => {
+				if (typeof res !== "string") {
+					setLoanDetails(res);
 				}
 			});
 		});
@@ -35,9 +36,9 @@ function ViewLoanDetails({ history }) {
 					buisnessId || buisnessResponse.ID
 				}`
 			)
-			.then((respoense) => {
-				if (typeof respoense.data !== "string") {
-					setLoanDetails(respoense.data);
+			.then((res) => {
+				if (typeof res !== "string") {
+					setLoanDetails(res);
 				}
 			});
 	}, []);

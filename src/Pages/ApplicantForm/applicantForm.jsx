@@ -36,9 +36,9 @@ function ApplicantDetailsForm(formData) {
 				}
 			)
 				.then((res) => {
-					if (res.data.ID) {
-						console.log(res.data);
-						setApplicantResponse(res.data);
+					if (res.ID) {
+						console.log(res);
+						setApplicantResponse(res);
 					}
 				})
 				.catch((err) => {

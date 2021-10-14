@@ -27,10 +27,10 @@ function LoanCardComponent({
 					<strong>Description:</strong>
 					{`${description}`}
 				</div>
-				<div>
+				{/* <div>
 					<strong>Loan Status:</strong>
 					{`${status}`}
-				</div>
+				</div> */}
 				<div>
 					<strong>Loan Application Date :</strong>
 					{`${date}`}

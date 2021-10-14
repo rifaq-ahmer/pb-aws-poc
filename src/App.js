@@ -26,9 +26,9 @@ function App() {
 		<Redirect to="/" />;
 	};
 	useEffect(() => {
-		Auth.currentAuthenticatedUser().then((response) => {
-			const token = response.signInUserSession.accessToken.jwtToken;
-			const email = response.attributes.email;
+		Auth.currentAuthenticatedUser().then((res) => {
+			const token = res.signInUserSession.accessToken.jwtToken;
+			const email = res.attributes.email;
 			console.log(token);
 
 			localStorage.setItem("accessToken", token);
@@ -44,18 +44,19 @@ function App() {
 					`/applicationsubmission/applicant/${email}`,
 					request
 				).then((respoense) => {
-					if (typeof respoense.data !== "string") {
-						setApplicantDetails(respoense.data);
+					if (typeof respoense !== "string") {
+						setApplicantDetails(respoense);
 						localStorage.setItem(
 							"applicantResponse",
-							JSON.stringify(respoense.data)
+							JSON.stringify(respoense)
 						);
 					} else {
-						console.log(respoense.data);
+						console.log(respoense);
 					}
 				});
 			}
 		});
+
 		return () => {
 			setApplicantDetails({});
 		};
@@ -68,6 +69,7 @@ function App() {
 				{Object.keys(applicantDetails).length === 0 && (
 					<Route exact path="/" component={HomePage}></Route>
 				)}
+
 				<Route
 					exact
 					path="/applicantDetailsForm"

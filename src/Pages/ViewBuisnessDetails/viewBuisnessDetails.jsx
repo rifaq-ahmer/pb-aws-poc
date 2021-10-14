@@ -19,9 +19,8 @@ function ViewBuisnessDetails({ history }) {
 				"ApplicantSubmission",
 				`/applicationsubmission/business?aid=${applicantId.Applicant_ID}`,
 				request
-			).then((respoense) => {
-				setBuisnessDetails(respoense.data);
-				console.log(respoense.data);
+			).then((res) => {
+				setBuisnessDetails(res);
 			});
 		});
 	}, []);
