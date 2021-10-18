@@ -57,25 +57,6 @@ function BuisnessFormComponent({ onSubmit, formData }) {
 									)}
 								</>
 							)}
-							{/* {type === "date" && (
-								<>
-									
-									<Input
-										inputName={id}
-										type={type}
-										className={className}
-										id={id}
-										label={label}
-										value={values[id] || ""}
-										onChange={handleChange}
-										onBlur={handleBlur}
-										maxLength={maxLength}
-									/>
-									{touched[id] && errors[id] && (
-										<p className="text-danger">{errors[id]}</p>
-									)}
-								</>
-							)} */}
 							{type === "textarea" && (
 								<>
 									<TextArea
