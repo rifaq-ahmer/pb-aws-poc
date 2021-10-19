@@ -5,8 +5,18 @@ import Input from "../Input/input.component";
 import { formFields } from "../../utils/formField";
 import TextArea from "../textarea/textarea.component";
 import CustomButton from "../Button/button.component";
+// import Files from "react-files";
 
 function ApplicantFormComponent({ onSubmit, formData }) {
+	// const onFilesChange = (files) => {
+	// 	console.log(files);
+	// 	const fileName = files.name;
+	// 	console.log(fileName);
+	// 	localStorage.setItem("applicantDocuments", JSON.stringify(files));
+	// };
+	// const onFilesError = (error) => {
+	// 	console.log("error code " + error.code + ": " + error.message);
+	// };
 	return (
 		<Formik
 			initialValues={formData}
@@ -82,6 +92,22 @@ function ApplicantFormComponent({ onSubmit, formData }) {
 							)}
 						</Fragment>
 					))}
+					{/* <div className="files">
+						<Files
+							className="files-dropzone"
+							onChange={onFilesChange}
+							onError={onFilesError}
+							accepts={["image/png", ".pdf", "audio/*", ".rtf"]}
+							// multiple
+							// maxFiles={3}
+							maxFileSize={10000000}
+							minFileSize={0}
+							clickable
+						>
+							<h6>Upload Applicant Documents</h6>
+							Drop files here or click to upload
+						</Files>
+					</div> */}
 					<div>
 						<CustomButton
 							className="mt-3"

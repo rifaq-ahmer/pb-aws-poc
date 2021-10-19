@@ -6,16 +6,17 @@ import { LoanFormFields } from "../../utils/loanFormFields";
 import TextArea from "../textarea/textarea.component";
 import CustomButton from "../Button/button.component";
 
-import Files from "react-files";
+// import Files from "react-files";
 
 function BuisnessFormComponent({ onSubmit, formData }) {
 	const currentDate = new Date().toLocaleDateString();
-	const onFilesChange = (files) => {
-		console.log(files);
-	};
-	const onFilesError = (error) => {
-		console.log("error code " + error.code + ": " + error.message);
-	};
+	// const onFilesChange = (files) => {
+	// 	console.log(files);
+	// 	localStorage.setItem("loanDocuments", files);
+	// };
+	// const onFilesError = (error) => {
+	// 	console.log("error code " + error.code + ": " + error.message);
+	// };
 
 	return (
 		<Formik
@@ -76,8 +77,7 @@ function BuisnessFormComponent({ onSubmit, formData }) {
 							)}
 						</Fragment>
 					))}
-
-					<div className="files">
+					{/* <div className="files">
 						<Files
 							className="files-dropzone"
 							onChange={onFilesChange}
@@ -89,10 +89,10 @@ function BuisnessFormComponent({ onSubmit, formData }) {
 							minFileSize={0}
 							clickable
 						>
+							<h6>Upload Loan Documents</h6>
 							Drop files here or click to upload
 						</Files>
-					</div>
-
+					</div> */}
 					<div>
 						<CustomButton
 							className="mt-3"

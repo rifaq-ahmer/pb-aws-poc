@@ -25,21 +25,21 @@ export const Amplifyconfig = {
 
 		clientMetadata: { myCustomKey: "myCustomValue" },
 
-		oauth: {
-			domain: "applicants.auth.ap-south-1.amazoncognito.com",
+		// oauth: {
+		// 	domain: "applicants.auth.ap-south-1.amazoncognito.com",
 
-			scope: ["email", "openid"],
+		// 	scope: ["email", "openid"],
 
-			redirectSignIn: "https://master.d3n4gc65xuvvqw.amplifyapp.com/",
+		// 	redirectSignIn: "https://master.d3n4gc65xuvvqw.amplifyapp.com/",
 
-			logoutUri: "https://master.d3n4gc65xuvvqw.amplifyapp.com/",
+		// 	logoutUri: "https://master.d3n4gc65xuvvqw.amplifyapp.com/",
 
-			redirectUri: "https://master.d3n4gc65xuvvqw.amplifyapp.com/",
+		// 	redirectUri: "https://master.d3n4gc65xuvvqw.amplifyapp.com/",
 
-			redirectSignOut: "https://master.d3n4gc65xuvvqw.amplifyapp.com/",
+		// 	redirectSignOut: "https://master.d3n4gc65xuvvqw.amplifyapp.com/",
 
-			responseType: "token", // or 'token', note that REFRESH token will only be generated when the responseType is code
-		},
+		// 	responseType: "token", // or 'token', note that REFRESH token will only be generated when the responseType is code
+		// },
 	},
 };
 

@@ -5,8 +5,16 @@ import Input from "../Input/input.component";
 import { BuisnessFormFields } from "../../utils/buisnessFormFields";
 import TextArea from "../textarea/textarea.component";
 import CustomButton from "../Button/button.component";
+// import Files from "react-files";
 
 function BuisnessFormComponent({ onSubmit, formData }) {
+	// const onFilesChange = (files) => {
+	// 	console.log(files);
+	// 	localStorage.setItem("businessDocuments", files);
+	// };
+	// const onFilesError = (error) => {
+	// 	console.log("error code " + error.code + ": " + error.message);
+	// };
 	return (
 		<Formik
 			initialValues={formData}
@@ -84,6 +92,22 @@ function BuisnessFormComponent({ onSubmit, formData }) {
 							</Fragment>
 						)
 					)}
+					{/* <div className="files">
+						<Files
+							className="files-dropzone"
+							onChange={onFilesChange}
+							onError={onFilesError}
+							accepts={["image/png", ".pdf", "audio/*"]}
+							multiple
+							maxFiles={3}
+							maxFileSize={10000000}
+							minFileSize={0}
+							clickable
+						>
+							<h6>Upload Business Documents</h6>
+							Drop files here or click to upload
+						</Files>
+					</div> */}
 					<div>
 						<CustomButton
 							className="mt-3"

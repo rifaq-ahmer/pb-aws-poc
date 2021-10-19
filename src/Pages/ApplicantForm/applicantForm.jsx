@@ -13,7 +13,9 @@ function ApplicantDetailsForm(formData) {
 	const history = useHistory();
 	const handleSubmit = async (values) => {
 		console.log(values);
-
+		// const files = JSON.parse(localStorage.getItem("applicantDocuments"));
+		// const file = files[0];
+		// console.log(file);
 		await Auth.currentAuthenticatedUser().then((response) => {
 			const token = response.signInUserSession.accessToken.jwtToken;
 			localStorage.setItem("accessToken", token);
@@ -47,6 +49,7 @@ function ApplicantDetailsForm(formData) {
 					console.log(err);
 				});
 		});
+		// localStorage.removeItem("applicantDocuments");
 	};
 
 	useEffect(() => {

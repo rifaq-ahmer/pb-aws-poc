@@ -12,6 +12,8 @@ function BuisnessDetailsForm(formData) {
 	const appId = localStorage.getItem("applicantId");
 	const handleSubmit = async (values) => {
 		console.log(values);
+		// const files = JSON.parse(localStorage.getItem("businessDocuments"));
+		// console.log(files);
 		await Auth.currentAuthenticatedUser().then((response) => {
 			const token = localStorage.getItem("accessToken");
 
@@ -20,7 +22,7 @@ function BuisnessDetailsForm(formData) {
 					Authorization: token,
 				},
 				body: {
-					Applicant_ID: applicantId.Applicant_ID || appId,
+					Applicant_ID: appId || applicantId.Applicant_ID,
 					Business_Name: values.buisnessName,
 					Business_ContactNo: values.buisnessContactNo,
 					Business_Address: values.buisnessAddress,
@@ -40,6 +42,7 @@ function BuisnessDetailsForm(formData) {
 					console.log(err);
 				});
 		});
+		localStorage.removeItem("businessDocuments");
 	};
 
 	useEffect(() => {
@@ -51,7 +54,7 @@ function BuisnessDetailsForm(formData) {
 			history.push({
 				pathname: "/loanDetailsForm",
 				state: {
-					applicantId: applicantId.Applicant_ID,
+					applicantId: appId || applicantId.Applicant_ID,
 					businessData: buisnessResponse,
 				},
 			});
