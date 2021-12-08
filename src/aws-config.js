@@ -4,7 +4,8 @@ export const Amplifyconfig = {
 			{
 				name: "ApplicantSubmission",
 
-				endpoint: "https://ywrooavneh.execute-api.us-east-2.amazonaws.com/v1",
+				endpoint:
+					"https://xot7r87w4b.execute-api.us-east-2.amazonaws.com/ExternalAPI",
 			},
 		],
 	},
@@ -14,9 +15,9 @@ export const Amplifyconfig = {
 
 		identityPoolRegion: "us-east-2",
 
-		userPoolId: "us-east-2_hAVQtCRwv",
+		userPoolId: "us-east-2_R8zia3XHx",
 
-		userPoolWebClientId: "6um15ct2i0ah9nudbq6u7b7oph",
+		userPoolWebClientId: "246n1cvf5sgbud31m3ghi2ubr6",
 
 		mandatorySignIn: false,
 
@@ -29,12 +30,12 @@ export const Amplifyconfig = {
 export const config = {
 	apiGateway: {
 		REGION: "us-east-2",
-		URL: "https://ywrooavneh.execute-api.us-east-2.amazonaws.com/v1",
+		URL: "https://xot7r87w4b.execute-api.us-east-2.amazonaws.com/ExternalAPI",
 	},
 	cognito: {
 		REGION: "us-east-2",
-		USER_POOL_ID: "us-east-2_hAVQtCRwv",
-		APP_CLIENT_ID: "6um15ct2i0ah9nudbq6u7b7oph",
+		USER_POOL_ID: "us-east-2_R8zia3XHx",
+		APP_CLIENT_ID: "246n1cvf5sgbud31m3ghi2ubr6",
 		CALLBACK_URL: "https://master.d3n4gc65xuvvqw.amplifyapp.com/",
 	},
 };
