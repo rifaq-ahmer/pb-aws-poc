@@ -15,9 +15,9 @@ export const Amplifyconfig = {
 
 		identityPoolRegion: "us-east-2",
 
-		userPoolId: "us-east-2_R8zia3XHx",
+		userPoolId: "us-east-2_ci7uSJC09",
 
-		userPoolWebClientId: "246n1cvf5sgbud31m3ghi2ubr6",
+		userPoolWebClientId: "j2fjpll18jbgern2ps7gnf7qh",
 
 		mandatorySignIn: false,
 
