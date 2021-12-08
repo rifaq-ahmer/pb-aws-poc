@@ -21,7 +21,7 @@ function App() {
 
 	const onSignOut = () => {
 		localStorage.clear();
-		console.log("Local Storage Clear");
+
 		<Redirect to="/" />;
 	};
 	useEffect(() => {
