@@ -13,9 +13,9 @@ function ApplicantDetailsForm(formData) {
 	const history = useHistory();
 	const handleSubmit = async (values) => {
 		console.log(values);
-		const files = JSON.parse(localStorage.getItem("applicantDocuments"));
-		const file = files[0];
-		console.log(file);
+		// const files = JSON.parse(localStorage.getItem("applicantDocuments"));
+		// const file = files[0];
+		// console.log(file);
 		await Auth.currentAuthenticatedUser().then((response) => {
 			const token = response.signInUserSession.accessToken.jwtToken;
 			localStorage.setItem("accessToken", token);
@@ -41,33 +41,34 @@ function ApplicantDetailsForm(formData) {
 				request
 			)
 				.then((res) => {
-					if (res.ID) {
-						const ID = res.ID;
-						console.log(res);
-						setApplicantResponse(res);
-						Auth.currentAuthenticatedUser().then(() => {
-							const request = {
-								headers: {
-									Authorization: token,
-									"Content-Type": "text/html,multipart/form-data",
-								},
-								body: {
-									myfile: file,
-								},
-							};
-							API.post(
-								"ApplicantSubmission",
-								`/applicationsubmission/document/${ID}`,
-								request
-							)
-								.then((res) => {
-									console.log(res);
-								})
-								.catch((err) => {
-									console.log(err);
-								});
-						});
-					}
+					console.log(res);
+					setApplicantResponse(res);
+					// if (res.ID) {
+					// 	const ID = res.ID;
+
+					// 	Auth.currentAuthenticatedUser().then(() => {
+					// 		const request = {
+					// 			headers: {
+					// 				Authorization: token,
+					// 				"Content-Type": "text/html,multipart/form-data",
+					// 			},
+					// 			body: {
+					// 				myfile: file,
+					// 			},
+					// 		};
+					// 		API.post(
+					// 			"ApplicantSubmission",
+					// 			`/applicationsubmission/document/${ID}`,
+					// 			request
+					// 		)
+					// 			.then((res) => {
+					// 				console.log(res);
+					// 			})
+					// 			.catch((err) => {
+					// 				console.log(err);
+					// 			});
+					// 	});
+					// 	}
 				})
 				.catch((err) => {
 					console.log(err);
