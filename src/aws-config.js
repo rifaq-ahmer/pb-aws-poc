@@ -4,7 +4,7 @@ export const Amplifyconfig = {
 			{
 				name: "ApplicantSubmission",
 
-				endpoint: "https://5xx8xpw6jl.execute-api.us-east-2.amazonaws.com/v1",
+				endpoint: "https://jlgzm35tk9.execute-api.us-east-2.amazonaws.com/v1",
 			},
 		],
 	},
@@ -14,9 +14,9 @@ export const Amplifyconfig = {
 
 		identityPoolRegion: "us-east-2",
 
-		userPoolId: "us-east-2_lC5gIF5pd",
+		userPoolId: "us-east-2_CzCWxYlvZ",
 
-		userPoolWebClientId: "4l7di89t4banjbr4dpoc8c1g1m",
+		userPoolWebClientId: "4ch9h2btfcvaccq98uenfobd2m",
 
 		mandatorySignIn: false,
 
@@ -29,7 +29,7 @@ export const Amplifyconfig = {
 export const config = {
 	apiGateway: {
 		REGION: "us-east-2",
-		URL: "https://5xx8xpw6jl.execute-api.us-east-2.amazonaws.com/v1",
+		URL: "https://jlgzm35tk9.execute-api.us-east-2.amazonaws.com/v1",
 	},
 	cognito: {
 		REGION: "us-east-2",
